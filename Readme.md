@@ -9,6 +9,7 @@ Requires ipgetter and python-nfsn
 * python-nfsn: https://github.com/ktdreyer/python-nfsn
 
 Install both using pip:
+
     pip install ipgetter
     pip install python-nfsn
 
