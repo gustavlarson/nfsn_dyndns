@@ -1,5 +1,6 @@
 About
 ========
+Dynamic DNS for NearlyFreeSpeech.net!
 This python script updates DNS records on NearlyFreeSpeech.net when a change of public ip is detected.
 
 Requirements
