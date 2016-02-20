@@ -4,7 +4,7 @@
 Updates DNS records on NearlyFreeSpeech.net when a change of public ip is
 detected.
 
-Configure login name and api key in /etc/nfsn_dundns.conf,
+Configure login name and api key in /etc/nfsn_dyndns.conf,
 see nfsn_dyndns.conf.example
 
 Requires ipgetter and python-nfsn
