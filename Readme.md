@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/gustavlarson/nfsn_dyndns.svg?branch=master)](https://travis-ci.org/gustavlarson/nfsn_dyndns)
 About
 ========
 Dynamic DNS for NearlyFreeSpeech.net!
