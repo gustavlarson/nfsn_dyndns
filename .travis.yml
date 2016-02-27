@@ -1,7 +1,7 @@
 language: python
 python:
   - "2.7"
-  . "3.2"
+  - "3.2"
   - "3.3"
   - "3.4"
   - "3.5"
@@ -12,4 +12,4 @@ install:
   - pip install python-nfsn
 # command to run tests
 script:
-  - ./.travis/check_style.sh
+  - "./.travis/check_style.sh"
