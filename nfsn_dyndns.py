@@ -40,7 +40,7 @@ def main():
             domain = entry['domain']
             records = NFSN.dns(domain).listRRs()
             for record in records:
-                if check_update_record(record):
+                if check_update_record(record, domain):
                     print('Removing {name}.{domain} with data: {data}'.format(
                         domain=domain,
                         name=record['name'],
@@ -91,10 +91,19 @@ def update_needed():
             print('All records does not match public ip')
             return True
 
-def check_update_record(record):
+def check_update_record(record, domain):
     """Check if a record needs to be updated."""
     if record['type'] != 'A' or record['data'] == PUBLIC_IP:
         return False
+
+    return monitor_subdomain(record['name'], domain)
+
+def monitor_subdomain(subdomain, domain):
+    """Returns true if the subdomain should be monitored and updated."""
+    for entry in CONFIG['domains']:
+        if entry['domain'] == domain:
+            if 'subdomains' in entry:
+                return subdomain in entry['subdomains']
 
     return True
 
@@ -105,7 +114,7 @@ def all_records_up_to_date():
         records = NFSN.dns(domain).listRRs()
         for record in records:
             if record['type'] == 'A':
-                if record['data'] != PUBLIC_IP:
+                if record['data'] != PUBLIC_IP and monitor_subdomain(record['name'], domain):
                     return False
 
     return True

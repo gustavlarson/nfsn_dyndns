@@ -30,8 +30,11 @@ There is support for multiple domains. Just list all domains under the domains k
 domains:
 - domain: example.com
 - domain: example.net
+  subdomains:
+    - www
+    - test
 ```
-
+A domain with subdomains listed will only monitor and update the listed subdomains. Without this key, all subdomains will be monitored and updated.
 
 Usage
 ========
