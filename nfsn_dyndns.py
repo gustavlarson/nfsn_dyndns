@@ -7,9 +7,10 @@ detected.
 Configure login name and api key in /etc/nfsn_dyndns.conf,
 see nfsn_dyndns.conf.example
 
-Requires ipgetter and python-nfsn
+Requires ipgetter, python-nfsn and PyYAML
 https://github.com/phoemur/ipgetter
 https://github.com/ktdreyer/python-nfsn
+http://pyyaml.org/
 
 
 """

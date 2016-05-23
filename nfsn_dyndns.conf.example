@@ -1,5 +1,12 @@
-{
-  "login": "LOGIN NAME",
-  "api-key": "API KEY",
-  "domain": "example.com"
-}
+# Your NFSN login name and API key
+login: LOGIN_NAME
+api-key: API_KEY
+
+# List your domains to monitor and update.
+# Without the optional subdomains key, all subdomains are monitored.
+domains:
+- domain: example.com
+- domain: example.net
+  subdomains: # Optional, list the subdomains to monitor and update
+  - test
+  - www

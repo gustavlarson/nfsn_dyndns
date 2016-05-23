@@ -17,23 +17,22 @@ Install all using pip:
 
 Configuration
 ========
-Place a configuration file at `/etc/nfsn_dyndns.conf` with the content
+Copy `nfsn_dyndns.conf.example` to `/etc/nfsn_dyndns.conf` and edit it to suit your needs.
 ```yaml
+# Your NFSN login name and API key
 login: LOGIN_NAME
 api-key: API_KEY
-domains:
-- domain: example.com
-```
 
-There is support for multiple domains. Just list all domains under the domains key:
-```yaml
+# List your domains to monitor and update. Without subdomains, all subdomains are monitored.
 domains:
 - domain: example.com
 - domain: example.net
-  subdomains:
-    - www
-    - test
+  subdomains: # Optional, list the subdomains to monitor and update
+  - test
+  - www
 ```
+
+There is support for multiple domains. Just list all domains under the domains key.
 A domain with subdomains listed will only monitor and update the listed subdomains. Without this key, all subdomains will be monitored and updated.
 
 Usage
