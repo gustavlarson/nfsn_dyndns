@@ -14,11 +14,11 @@ https://github.com/ktdreyer/python-nfsn
 
 """
 from __future__ import print_function
-import yaml
 import os
 import tempfile
 
 import ipgetter
+import yaml
 from nfsn import Nfsn
 
 CONFIG_FILE = '/etc/nfsn_dyndns.conf'
@@ -91,12 +91,14 @@ def update_needed():
             print('All records does not match public ip')
             return True
 
+
 def check_update_record(record, domain):
     """Check if a record needs to be updated."""
     if record['type'] != 'A' or record['data'] == PUBLIC_IP:
         return False
 
     return monitor_subdomain(record['name'], domain)
+
 
 def monitor_subdomain(subdomain, domain):
     """Returns true if the subdomain should be monitored and updated."""
@@ -107,6 +109,7 @@ def monitor_subdomain(subdomain, domain):
 
     return True
 
+
 def all_records_up_to_date():
     """Check if all DNS resource records are matching the public ip"""
     for entry in CONFIG['domains']:
@@ -114,7 +117,8 @@ def all_records_up_to_date():
         records = NFSN.dns(domain).listRRs()
         for record in records:
             if record['type'] == 'A':
-                if record['data'] != PUBLIC_IP and monitor_subdomain(record['name'], domain):
+                if (record['data'] != PUBLIC_IP and
+                        monitor_subdomain(record['name'], domain)):
                     return False
 
     return True
